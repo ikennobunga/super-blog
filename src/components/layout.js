@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import {NavBar, Footer} from '../components/global/global'
+import {NavBar} from '../components/global/global'
 
 
 const Layout = ({ children }) => {
