@@ -13,3 +13,10 @@
   overflow-y: scroll;
   line-height: 170%;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+li {
+  list-style-type: none;
+}

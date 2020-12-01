@@ -1,20 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import {NavBar} from '../components/global/global'
+import {NavBar  } from '../components/global/global'
 
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+  const data = useStaticQuery(query)
   return (
     <>
       <NavBar siteMetaData={data.site.siteMetadata.title || `Title`} />
@@ -26,5 +17,15 @@ const Layout = ({ children }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
+
+const query = graphql`
+  query SiteTitleQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
 
 export default Layout
