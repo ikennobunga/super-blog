@@ -1,6 +1,6 @@
 ---
 title: 'Second Post - Metal Stool'
-date: 2019-04-15
+date: 2020-04-16
 author: 'Bazooka New'
 path: '/second-post'
 ---
