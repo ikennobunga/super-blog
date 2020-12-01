@@ -18,6 +18,7 @@ const Hero = () => {
             author={node.frontmatter.author}
             body={node.excerpt}
             path={node.frontmatter.path}
+            fluid={node.frontmatter.image.childImageSharp.fluid}
           />
           )
         })
@@ -37,6 +38,13 @@ const indexQuery = graphql`
             date(formatString: "DD MMM YYYY")
             path
             title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt
         }
