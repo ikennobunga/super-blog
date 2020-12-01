@@ -4,6 +4,8 @@ nav {
   padding: 0 4rem 0 4rem;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
   /* background-color: antiquewhite; */
 }
 .logo__container {
