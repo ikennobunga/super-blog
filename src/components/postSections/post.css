@@ -1,4 +1,25 @@
+.post__card {
+  width: 30rem;
+}
 .post__image {
   width: 30rem;
   height: 40rem;
+}
+.pills {
+  width: 3.5rem;
+  height: 1.5rem;
+  border-radius: 1rem;
+  margin-left: 1rem;
+  font-size: smaller;
+  text-align: center;
+  background-color: #fddd58;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+.tag__container {
+  width: 30rem;
+  display: flex;
+  /* background-color: darkslategrey; */
 }
