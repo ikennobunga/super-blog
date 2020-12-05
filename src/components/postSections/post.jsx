@@ -20,7 +20,7 @@ const Post = ({title, date, author, path, body, fluid, tags}) => {
           tags.map((tag, index) => {
             return (
               <div className="pills">
-                <li><Link to={`/tag/${slugify(tag)}`}>{tag}</Link></li>
+                <li key={index}><Link to={`/tag/${slugify(tag)}`}>{tag}</Link></li>
               </div>
             )
           })

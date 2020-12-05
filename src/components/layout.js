@@ -1,15 +1,24 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import {NavBar, Footer} from '../components/global/global'
+import {NavBar, Footer, SideBar} from '../components/global/global'
 
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(query)
+
   return (
     <>
-      <NavBar siteMetaData={data.site.siteMetadata.title || `Title`} />
-      <main>{children}</main>
+      <div className="layout__container">
+        <div className="layout__flex">
+          <NavBar siteMetaData={data.site.siteMetadata.title || `Title`} />
+          <main>{children}</main>
+        </div>
+        <div className="sidebarContainer">
+          <SideBar/>
+          {/* <SideBar/> */}
+        </div>
+      </div>
       <Footer/>
     </>
   )

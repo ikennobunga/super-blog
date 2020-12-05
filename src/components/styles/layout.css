@@ -20,3 +20,21 @@ a {
 li {
   list-style-type: none;
 }
+/* layout component styling */
+.layout__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.layout__flex {
+  width: 100%;
+  height: 100%;
+}
+.sidebar {
+  width: 20vw;
+  height: 100%;
+  background-color: darkslategrey;
+}
+.sidebarContainer {
+  margin-top: 4rem;
+}
