@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
           <NavBar siteMetaData={data.site.siteMetadata.title || `Title`} />
           <main>{children}</main>
         </div>
-        <div className="sidebarContainer">
+        <div className="sidebar__container">
           <SideBar/>
           {/* <SideBar/> */}
         </div>
