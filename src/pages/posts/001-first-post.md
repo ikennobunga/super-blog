@@ -2,7 +2,6 @@
 title: 'First Post - Metal Stool'
 date: 2020-04-15
 author: 'Frank Zip'
-path: '/first-post'
 image:  ../../images/skyline-new-york-city-7613.jpg
 tags: 
 - metal

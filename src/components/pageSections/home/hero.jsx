@@ -13,11 +13,12 @@ const Hero = () => {
         data.allMarkdownRemark.edges.map(({node}) => {
           return (
           <Post 
+            key={node.id}
             title={node.frontmatter.title}
             date={node.frontmatter.date}
             author={node.frontmatter.author}
             body={node.excerpt}
-            path={node.frontmatter.path}
+            slug={node.fields.slug}
             fluid={node.frontmatter.image.childImageSharp.fluid}
             tags={node.frontmatter.tags}
           />
@@ -37,7 +38,6 @@ const indexQuery = graphql`
           frontmatter {
             author
             date(formatString: "DD MMM YYYY")
-            path
             title
             tags
             image {
@@ -47,6 +47,9 @@ const indexQuery = graphql`
                 }
               }
             }
+          }
+          fields {
+            slug
           }
           excerpt
         }

@@ -2,7 +2,6 @@
 title: 'Third Post - Leather Stool'
 date: 2020-04-17
 author: 'Oxford Miles'
-path: '/third-post'
 image: ../../images/holger-link-xmW_c5chJys-unsplash.jpg
 tags:
 - leather
