@@ -1,9 +1,11 @@
 import React from 'react'
+import {ServicesHero} from '../components/pageSections/pageSection'
+
 
 const Services = () => {
   return (
     <div>
-      <h1>services</h1>
+      <ServicesHero/>
     </div>
   )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
+import {GalleryHero} from '../components/pageSections/gallery/galleryHero.jsx'
 
 const Gallery = () => {
   return (
     <div>
-      <h1>ama gallery</h1>
+      <GalleryHero/>
     </div>
   )
 }
