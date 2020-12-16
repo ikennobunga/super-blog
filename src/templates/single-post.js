@@ -3,13 +3,16 @@ import {graphql, Link} from 'gatsby'
 import SEO from '../components/seo'
 import Img from 'gatsby-image'
 import {slugify} from '../utility/functions/functions'
+import authors from '../data/authors'
+import Layout from '../components/layout'
 
 
 const SinglePost = ({data}) => {
   const post = data.markdownRemark.frontmatter
-
+  const author = authors.find(author => author.name === post.author)
+  const image = data.file.childImageSharp.fluid
   return (
-    <div>
+    <Layout postAuthor={author} authorImage={image}>
       <SEO title={post.title}/>
       <h1>{post.title}</h1>
       <div>
@@ -34,12 +37,12 @@ const SinglePost = ({data}) => {
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   )
 }
 
 export const postQuery = graphql`
-  query blogPostBySlug($slug: String!) {
+  query blogPostBySlug($slug: String!, $imageUrl: String!) {
     markdownRemark(fields: {slug: {eq: $slug}}) {
       id
       html
@@ -54,6 +57,13 @@ export const postQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+    }
+    file(relativePath: {eq: $imageUrl}) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
         }
       }
     }

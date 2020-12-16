@@ -1,7 +1,7 @@
 ---
 title: 'Second Post - Wood Stool'
 date: 2020-04-16
-author: 'Bazooka New'
+author: 'Don Ford'
 image: ../../images/astemir-almov--kgrPSetNW8-unsplash.jpg
 tags: 
 - wood

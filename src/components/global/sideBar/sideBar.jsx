@@ -4,11 +4,29 @@ import Img from 'gatsby-image'
 import {graphql, useStaticQuery, Link} from 'gatsby'
 
 
-const SideBar = () => {
+const SideBar = ({author, authorFluid}) => {
   const data = useStaticQuery(sideBarQuery)
-
+  
   return (
     <div className="sidebar">
+      {
+        author && (
+          <div className="card">
+            <Img fluid={authorFluid}/>
+            <div className="card__body">
+              <div className="card__title">{author.name}</div>
+              <div className="card__text">{author.bio}</div>
+              <div className="social__links">
+                <ul>
+                  <li><a href={author.facebook}></a></li>
+                  <li><a href={author.twitter}></a></li>
+                  <li><a href={author.instagram}></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        )
+      }
       <div className="card__form">
         <div className="card__title"><h4>News Letter</h4></div>
         <form>

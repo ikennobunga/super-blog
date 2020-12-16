@@ -1,5 +1,6 @@
 const {slugify} = require(`./src/utility/functions/functions.js`)
 const path = require(`path`)
+const authors = require(`./src/data/authors`)
 
 
 exports.onCreateNode = ({node, actions}) => {
@@ -25,7 +26,6 @@ exports.createPages = ({graphql, actions}) => {
           node {
             frontmatter {
               author
-              tags
             }
             fields {
               slug
@@ -40,12 +40,13 @@ exports.createPages = ({graphql, actions}) => {
     }
     const posts = res.data.allMarkdownRemark.edges
 
-    posts.forEach(({node}) =>{
+    posts.forEach(({node}) => {
       createPage({
         path: node.fields.slug,
         component: singlePostTemplate,
         context: {
-          slug: node.fields.slug
+          slug: node.fields.slug,
+          imageUrl: authors.find(author => author.name === node.frontmatter.author).imageUrl
         }
       })
     })
