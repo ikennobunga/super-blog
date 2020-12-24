@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="hero__container">
         <h1>am a hero</h1>
         {
-          data.allMarkdownRemark.edges.map(({node}) => {
+          data.allMdx.edges.map(({node}) => {
             return (
             <Post 
               key={node.id}
@@ -34,9 +34,10 @@ const Hero = () => {
 
 const indexQuery = graphql`
   query {
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+    allMdx(sort: {fields: [frontmatter___date], order: DESC}) {
       edges {
         node {
+          body
           id
           frontmatter {
             author

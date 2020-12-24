@@ -8,6 +8,7 @@
 }
 .card {
   margin-top: 2rem;
+  /* height: 20rem; */
 }
 .card__image {
   width: 100%;
@@ -21,4 +22,13 @@
 }
 .card__post__image {
   width: 100%;
+}
+.card__author {
+  width: 100%;
+  height: 20rem;
+}
+.social__links ul > li a {
+  width: 100%;
+  margin-left: .6rem;
+  color: blue;
 }

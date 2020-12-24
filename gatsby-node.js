@@ -5,7 +5,7 @@ const authors = require(`./src/data/authors`)
 
 exports.onCreateNode = ({node, actions}) => {
   const {createNodeField} = actions
-  if(node.internal.type === 'MarkdownRemark') {
+  if(node.internal.type === 'Mdx') {
     const slugFromTitle = slugify(node.frontmatter.title)
     createNodeField({
       node,
@@ -21,7 +21,7 @@ exports.createPages = ({graphql, actions}) => {
 
   return graphql(`
     {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             frontmatter {
@@ -38,7 +38,7 @@ exports.createPages = ({graphql, actions}) => {
     if(res.errors) {
       return Promise.reject(res.errors)
     }
-    const posts = res.data.allMarkdownRemark.edges
+    const posts = res.data.allMdx.edges
 
     posts.forEach(({node}) => {
       createPage({
@@ -50,5 +50,7 @@ exports.createPages = ({graphql, actions}) => {
         }
       })
     })
+
+    //TODO here we are getting our tags page and we need to install a load dash for some functionalities
   })
 }

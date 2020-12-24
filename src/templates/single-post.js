@@ -5,10 +5,11 @@ import Img from 'gatsby-image'
 import {slugify} from '../utility/functions/functions'
 import authors from '../data/authors'
 import Layout from '../components/layout'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 
 const SinglePost = ({data}) => {
-  const post = data.markdownRemark.frontmatter
+  const post = data.mdx.frontmatter
   const author = authors.find(author => author.name === post.author)
   const image = data.file.childImageSharp.fluid
   return (
@@ -20,7 +21,8 @@ const SinglePost = ({data}) => {
           <Img fluid={post.image.childImageSharp.fluid}/>
           <div className="card__body">
             <div className="card__subtitle">{post.date} by {post.author}</div>
-            <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
+            {/* <div dangerouslySetInnerHTML={{__html: data.mdx.html}}/> */}
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
             <ul className="post__tags">
               {
                 post.tags.map(tag => {
@@ -43,9 +45,9 @@ const SinglePost = ({data}) => {
 
 export const postQuery = graphql`
   query blogPostBySlug($slug: String!, $imageUrl: String!) {
-    markdownRemark(fields: {slug: {eq: $slug}}) {
+    mdx(fields: {slug: {eq: $slug}}) {
+      body
       id
-      html
       frontmatter {
         title
         author

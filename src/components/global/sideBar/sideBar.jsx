@@ -11,16 +11,16 @@ const SideBar = ({author, authorFluid}) => {
     <div className="sidebar">
       {
         author && (
-          <div className="card">
+          <div className="card__author">
             <Img fluid={authorFluid}/>
             <div className="card__body">
               <div className="card__title">{author.name}</div>
               <div className="card__text">{author.bio}</div>
               <div className="social__links">
                 <ul>
-                  <li><a href={author.facebook}></a></li>
-                  <li><a href={author.twitter}></a></li>
-                  <li><a href={author.instagram}></a></li>
+                  <li><a href={author.facebook}>facebook</a></li>
+                  <li><a href={author.twitter}>twitter</a></li>
+                  <li><a href={author.instagram}>instagram</a></li>
                 </ul>
               </div>
             </div>
@@ -41,7 +41,7 @@ const SideBar = ({author, authorFluid}) => {
       </div>
 
       {
-        data.allMarkdownRemark.edges.map(({node}) => {
+        data.allMdx.edges.map(({node}) => {
           return (
             <div key={node.id} className="card__post">
               <div className="card__post__image">
@@ -64,9 +64,10 @@ const SideBar = ({author, authorFluid}) => {
 
 const sideBarQuery = graphql`
   query {
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+    allMdx(sort: {fields: [frontmatter___date], order: DESC}) {
       edges {
         node {
+          body
           id
           frontmatter {
             title
